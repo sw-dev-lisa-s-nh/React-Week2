@@ -14,6 +14,7 @@ export default class ReviewList extends React.Component {
     // onFormSubmit -- let's update the reviews array with the new content.
 
     render() {
+        // we need a loop to re-render the reviewlist on the page... ??????
         return (
             <div>
                 <strong>Reviews: </strong>  

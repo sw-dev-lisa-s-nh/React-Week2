@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import ReviewForm from './reviewform';
 import ReviewList from './reviewlist';
-//import Stars from './stars';
+import Stars from './stars';
 
 
 // Movie - a component that represents movie data 
@@ -16,6 +16,8 @@ export default class Movie extends React.Component{
       ranking: props.ranking,
       title: props.title,
       rating: props.rating,
+      stars: props.stars,
+      totalratings: props.totalratings,
       synopsis: props.synopsis,
       image: props.image,
       reviews: []
@@ -35,18 +37,18 @@ export default class Movie extends React.Component{
            
             <Card.Body>
             <div className="cardBody p-2 border border-color: rgb(46, 46, 88)">
-                <strong>Stars:</strong>
-                <h5>TO DO:  This is going to hold the Stars Rating!</h5>
-                {/* <Stars /> */}
-                {/* <br /><br />                 */}
                 <strong>Synopsis:</strong>  {this.state.synopsis}
                 <br /><br />
-                <strong>Rating: </strong> {this.state.rating}
+                <strong>Rating: {this.state.rating} </strong>
+                <br /><br />
+                <strong>Stars Average Rating: </strong> <span>&nbsp; &nbsp;</span><strong>{this.state.stars}</strong>
                 <br /><br />
                 <ReviewList />
             </div>
             </Card.Body>
-            <Card.Footer className="text-muted">               
+            <br />
+            <Card.Footer className="text-muted"> 
+                <Stars /> <br />
                 <ReviewForm />
             </Card.Footer>
         </Card>
