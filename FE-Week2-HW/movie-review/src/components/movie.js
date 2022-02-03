@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import ReviewForm from './reviewform';
 import ReviewList from './reviewlist';
 import Stars from './stars';
 
@@ -26,7 +25,7 @@ export default class Movie extends React.Component{
 
   
   render() {
-      console.log(this.props.image);
+      // console.log(this.props.image); // for debugging purposes
     return (
         <Card className="card-movie p-2 border border-primary">
             <Card.Header>
@@ -43,13 +42,13 @@ export default class Movie extends React.Component{
                 <br /><br />
                 <strong>Stars Average Rating: </strong> <span>&nbsp; &nbsp;</span><strong>{this.state.stars}</strong>
                 <br /><br />
-                <ReviewList />
+                <ReviewList /> <br />
+                <Stars /> <br />
             </div>
             </Card.Body>
             <br />
             <Card.Footer className="text-muted"> 
-                <Stars /> <br />
-                <ReviewForm />
+               End of <strong>{this.state.title}</strong>
             </Card.Footer>
         </Card>
         )

@@ -31,6 +31,8 @@ export default class ReviewForm extends React.Component {
       return (
           <div className="border border-primary p-3">
             <h5>Personal Movie Review</h5>
+            <h5>TO DO:  Fix SUBMIT!</h5>
+
             <form className="p-2" onSubmit={this.handleSubmit}>
                 <label><strong>Review:</strong><br />
                     <span>&nbsp;</span>

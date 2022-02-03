@@ -33,6 +33,7 @@ export default class Stars extends React.Component {
       return (
           <div className="border border-primary p-3">
             <h5>Stars Rating</h5>
+            <h5>TO DO:  Make Submit work!</h5>
             <form className="p-2" onSubmit={this.handleSubmit}>
                 <label><strong>How many stars will you rate this movie:</strong><br />
                 <div className="radio">

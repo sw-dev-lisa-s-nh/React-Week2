@@ -17,7 +17,7 @@ export default class Review extends React.Component {
         return (
             <Card>
             <Card.Header>
-                <br /><strong>Movie Review</strong> <span>&nbsp;</span><strong>{this.state.title}</strong>                          
+                <br /><strong>Movie Review</strong>                       
             </Card.Header>
            
             <Card.Body>
