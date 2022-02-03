@@ -30,7 +30,7 @@ export default class ReviewForm extends React.Component {
     render() {
       return (
           <div className="border border-primary p-3">
-            <h5>Enter a review here:</h5>
+            <h5>Review this movie here:</h5>
             <form className="p-2" onSubmit={this.handleSubmit}>
                 <label>Review:<br />
                     <textarea className="m-1"value={this.props.reviewtext} onChange={this.handleChange} />

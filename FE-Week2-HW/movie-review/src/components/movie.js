@@ -29,7 +29,6 @@ export default class Movie extends React.Component{
     return (
         <Card className="card-movie p-2 border border-primary">
             <Card.Header>
-                {/* <img src={require(this.props.image)} alt='movie poster' type='image/jpeg'/> */}
                 <Card.Img className="card-image img-fluid" variant="left" src={this.state.image} alt='movie poster' type='image/jpeg'/>
                 <span>&nbsp; &nbsp; </span>
                 <strong>{this.state.id}.</strong> <span>&nbsp;</span><strong>{this.state.title}</strong>                          
@@ -38,8 +37,9 @@ export default class Movie extends React.Component{
             <Card.Body>
             <div className="cardBody p-2 border border-color: rgb(46, 46, 88)">
                 <strong>Stars:</strong>
+                <h5>TO DO:  This is going to hold the Stars Rating!</h5>
                 {/* <Stars /> */}
-                <br /><br />                
+                {/* <br /><br />                 */}
                 <strong>Synopsis:</strong>  {this.state.synopsis}
                 <br /><br />
                 <strong>Rating: </strong> {this.state.rating}
