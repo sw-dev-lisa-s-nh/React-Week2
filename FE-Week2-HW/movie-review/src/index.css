@@ -13,8 +13,19 @@ code {
     monospace;
 }
 
+.card-movie {
+  background-color: lightseagreen;
+  font-family: fantasy
+}
+
+.card-image {
+  object-fit: scale-down;
+  width: 10vw;
+  height: 10vh
+}
+
 h2 {
-  color: darkgreen;
+  color: darkslateblue;
   padding: 5px;
   font-family: fantasy;
   text-align: center;
@@ -23,11 +34,11 @@ h2 {
 div {
   border-width: 4;
   border-radius: 20px;
-  border-color: darkgreen;
+  background-color: lightsteelblue;
 }
 
 h5 {
-  color: darkgreen;
+  color: darkslateblue;
   padding: 5px;
   font-family: fantasy;
 }

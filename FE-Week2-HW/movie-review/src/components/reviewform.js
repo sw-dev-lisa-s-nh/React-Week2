@@ -10,7 +10,8 @@ export default class ReviewForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        reviewtext: ''
+        index: this.props.index,
+        reviewtext: this.props.reviewtext
       };
   
       this.handleChange = this.handleChange.bind(this);
@@ -28,13 +29,13 @@ export default class ReviewForm extends React.Component {
   
     render() {
       return (
-          <div className="border border-primary p-2">
+          <div className="border border-primary p-3">
             <h5>Enter a review here:</h5>
             <form className="p-2" onSubmit={this.handleSubmit}>
                 <label>Review:<br />
                     <textarea className="m-1"value={this.props.reviewtext} onChange={this.handleChange} />
-                </label><br />
-            <input className="btn-primary" type="submit" value="Submit Movie Review" />
+                </label><br /><span>&nbsp; &nbsp;</span>
+            <input className="submit-button btn-dark" type="submit" value="Submit Movie Review" />
             </form>
           </div>
       );

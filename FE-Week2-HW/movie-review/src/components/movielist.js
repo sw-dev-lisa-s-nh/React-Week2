@@ -2,31 +2,13 @@ import React from 'react';
 import Movie from '../components/movie';
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 
-
 // MovieList - a container for all the Movie components and their data.
 
 export default class MovieList extends React.Component {
-    constructor(props) {
-        super(props);
-        // this.state = {
-        //     movies: {},
-        //     name: '',
-        //     synopsis: '',
-        //     action: ''
-        // };
-        this.addMovie = this.addMovie.bind(this); // needed for React
-    }
-
-    addMovie(movie) {
-        this.setState(state => {
-            state.movies.addMovie(movie);
-        });
-    }
 
     render() {
-        const Encanto = require('../Encanto.jpeg');
         return (
-            <div className="container">
+            <div className="container p-5 ">
                 <h2>Movie List</h2>
                 <Movie {...
                 { id: 1,
@@ -35,9 +17,9 @@ export default class MovieList extends React.Component {
                   title: 'Schindler\'s List',
                   rating: 'R (for language, some sexuality and actuality violence).',
                   synopsis: 'In German-occupied Poland during World War II industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.',
-                  image: <img src={require(`../SchindlersList.jpeg`)} alt='Schindler' /> }
+                  image: 'https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg' }
                 }/>
-
+                <br /><br /><br />
                 <Movie {...
                 { id: 2,
                   key: 2,
@@ -45,9 +27,9 @@ export default class MovieList extends React.Component {
                   title: 'Whiplash',
                   rating: 'R (for strong language including some sexual references).',
                   synopsis: 'A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student\'s potential.',
-                  image: <img src={require('../Whiplash.jpg')} alt='Whiplash' /> }
+                  image: 'https://i.pinimg.com/originals/f6/dd/d9/f6ddd907657e80b41e51bbd417ea7dae.jpg' }
                 }/>   
-
+                <br /><br /><br />
                 <Movie {...
                 { id: 3,
                   key: 3,
@@ -55,9 +37,9 @@ export default class MovieList extends React.Component {
                   title: 'The Shawshank Redemption',
                   rating: 'R (for language and prison violence).',
                   synopsis: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency',
-                  image: <img src={require('../Shawshank.jpeg')} alt='Shawshank' /> }
+                  image: 'https://m.media-amazon.com/images/I/71715eBi1sL._AC_SY879_.jpg'}
                 }/>   
-
+                <br /><br /><br />
                 <Movie {...
                 { id: 4,
                   key: 4,
@@ -65,41 +47,9 @@ export default class MovieList extends React.Component {
                   title: 'Encanto',
                   rating: 'PG (for some thematic elements and mild peril).',
                   synopsis: 'A young Colombian woman has to face the frustration of being the only member of her family without magical powers.',
-                  image: <img src={Encanto} alt='Encanto' /> }
+                  image: 'https://www.themoviedb.org/t/p/original/7M8bMABEbhGkC6z36WEsDttDk6F.jpg'}
                 }/>   
             </div>
         );
     }
 }
-
-
-
-// export default class NewsFeed extends React.Component {
-//     render() {
-//         let comments = [
-//             {
-//                 content: 'This is my comment',
-//                 username: 'Tommy',
-//                 date:  '12-12-2018'
-//             },
-//             {
-//                 content: 'This is another comment',
-//                 username: 'Sammy',
-//                 date:  '12-17-2018'
-//             },
-//             {
-//                 content: 'Here\'s another comment from me',
-//                 username: 'Sally',
-//                 date:  '12-20-2018'
-//             }
-//         ]
-//         return (
-//             <div className="container">
-//                 <Post {...{comments: comments, content: 'This is my post content!'}}/>
-//                 <Post {...{content: 'Here is another post!!!!!!!!!!!'}}/>
-//             </div>
-//         );
-//     }
-// }
-
- 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import ReviewForm from './reviewform';
-//import ReviewList from './reviewlist';
+import ReviewList from './reviewlist';
 //import Stars from './stars';
 
 
@@ -13,7 +13,6 @@ export default class Movie extends React.Component{
     super(props);
     this.state = {
       id: props.id,
-      key: props.key,
       ranking: props.ranking,
       title: props.title,
       rating: props.rating,
@@ -23,16 +22,21 @@ export default class Movie extends React.Component{
     };
   }
 
+  
+
   render() {
+      console.log(this.props.image);
     return (
-        <Card className="border border-primary">
+        <Card className="card-movie p-2 border border-primary">
             <Card.Header>
-                <Card.Img class="img-fluid" variant="top" src={this.state.image} />
-                <br /><strong>{this.state.id}.</strong> <span>&nbsp;</span><strong>{this.state.title}</strong>                          
+                {/* <img src={require(this.props.image)} alt='movie poster' type='image/jpeg'/> */}
+                <Card.Img className="card-image img-fluid" variant="left" src={this.state.image} alt='movie poster' type='image/jpeg'/>
+                <span>&nbsp; &nbsp; </span>
+                <strong>{this.state.id}.</strong> <span>&nbsp;</span><strong>{this.state.title}</strong>                          
             </Card.Header>
            
             <Card.Body>
-            <div className="cardBody">
+            <div className="cardBody p-2 border border-color: rgb(46, 46, 88)">
                 <strong>Stars:</strong>
                 {/* <Stars /> */}
                 <br /><br />                
@@ -40,7 +44,7 @@ export default class Movie extends React.Component{
                 <br /><br />
                 <strong>Rating: </strong> {this.state.rating}
                 <br /><br />
-                {/* <ReviewList /> */}
+                <ReviewList />
             </div>
             </Card.Body>
             <Card.Footer className="text-muted">               

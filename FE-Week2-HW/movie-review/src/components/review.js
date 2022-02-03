@@ -7,11 +7,11 @@ export default class Review extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: this.props.title,
-            reviewtext: ''
+            index: this.props.index,
+            reviewtext: this.props.reviewtext
         };
-        //this.countClicks = this.countClicks.bind(this); // needed for React
     }
+
 
     render() {
         return (
