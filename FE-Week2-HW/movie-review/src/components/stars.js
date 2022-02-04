@@ -15,18 +15,23 @@ export default class Stars extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
-    resetStars() {
-      this.setState({
-        newstars: 0
-      });
-    }
+    // resetStars() {
+    //   this.setState({
+    //     newstars: 0
+    //   });
+    // }
 
     handleChange(event) {
       let current = event.target;
-      let name = current.name;
-      let value = current.value;
+      let stringvalue = current.value;
+      let value = 0;
+      if (stringvalue === '1') { value = 1; }
+      else if (stringvalue=== '2') { value = 2; }
+      else if (stringvalue === '3') { value = 3; }
+      else if (stringvalue === '4') { value = 4; }
+      else if (stringvalue === '5') { value = 5; }
+      console.log(value + '  &  ' + typeof(value));
       alert('A new Star Rating was entered: ' + value);
-      console.log('Name: ' + name + ' Value: ' + value);
       this.setState({
           newstars : value
       });
@@ -35,21 +40,21 @@ export default class Stars extends React.Component {
     handleSubmit() {
       console.log('A star rating was submitted:' + this.state.newstars);
       // PROBLEM:  This is undefined! -- onFormSubmit is defined in movie.js
-      this.props.onFormSubmit(this.state);
-      this.resetStars();
+      this.props.onStarSubmit(this.state);
+      // this.resetStars();
     }
     
   
     render() {
       return (
-          <div className="border border-primary m-3 p-3">
+          <div className="star-box p-2">
             <h5>Stars Rating</h5>
             <h5>TO DO:  Make Submit work!</h5>
-            <form className="star-submission p-2" onSubmit={this.handleSubmit}>
-                <label><strong>How many stars will you rate this movie:</strong><br />
+            <form className="star-submission">
+                <label><strong>How many stars do you give this movie:</strong><br />
                 <div className="radio">
                     <label>
-                        <input type="radio" name="star" value="1" onChange={this.handleChange} />
+                        <input type="radio" name="star" value={1} onChange={this.handleChange} />
                         <span>&nbsp;&nbsp;&nbsp;</span>
                         <img className = "star" src = {require('./empty-star.png')} alt="first star" />
                         <span>&nbsp;&nbsp;&nbsp;</span>
@@ -59,7 +64,7 @@ export default class Stars extends React.Component {
                     
                     <div className="radio">
                     <label>
-                        <input type="radio" name="star" value="2" onChange={this.handleChange} />
+                        <input type="radio" name="star" value={2} onChange={this.handleChange} />
                         <span>&nbsp;&nbsp;&nbsp;</span>
                         <img className = "star" src = {require('./empty-star.png')} alt="first star" />
                         <img className = "star" src = {require('./empty-star.png')} alt="first star" />
@@ -70,7 +75,7 @@ export default class Stars extends React.Component {
                     
                     <div className="radio">
                     <label>
-                        <input type="radio" name="star" value="3" onChange={this.handleChange} />
+                        <input type="radio" name="star" value={3} onChange={this.handleChange} />
                         <span>&nbsp;&nbsp;&nbsp;</span>
                         <img className = "star" src = {require('./empty-star.png')} alt="first star" />
                         <img className = "star" src = {require('./empty-star.png')} alt="first star" />
@@ -82,7 +87,7 @@ export default class Stars extends React.Component {
                     
                     <div className="radio">
                     <label>
-                        <input type="radio" name="star" value="4" onChange={this.handleChange} />
+                        <input type="radio" name="star" value={4} onChange={this.handleChange} />
                         <span>&nbsp;&nbsp;&nbsp;</span>
                         <img className = "star" src = {require('./empty-star.png')} alt="first star" />
                         <img className = "star" src = {require('./empty-star.png')} alt="first star" />
@@ -95,7 +100,7 @@ export default class Stars extends React.Component {
                     
                     <div className="radio">
                     <label>
-                        <input type="radio" name="star" value="5" onChange={this.handleChange}  />
+                        <input type="radio" name="star" value={5} onChange={this.handleChange}  />
                         <span>&nbsp;&nbsp;&nbsp;</span>
                         <img className = "star" src = {require('./empty-star.png')} alt="first star" />
                         <img className = "star" src = {require('./empty-star.png')} alt="first star" />
@@ -107,7 +112,7 @@ export default class Stars extends React.Component {
                      </label>
                     </div>
                 </label><br /><br /><span>&nbsp; &nbsp;</span>
-            <input className="submit-button btn-dark" type="submit"  onClick={this.handleSubmit} value="Submit Star Rating" />
+            <input className="submit-button btn-dark" type="submit"  onClick={this.handleSubmit} value="Submit Star Vote" />
             </form>
           </div>
       );

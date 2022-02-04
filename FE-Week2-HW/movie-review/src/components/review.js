@@ -7,8 +7,9 @@ export default class Review extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            index: this.props.index,
-            reviewtext: this.props.reviewtext
+            index: props.index,
+            reviewtext: props.reviewtext,
+            key: props.key
         };
     }
 

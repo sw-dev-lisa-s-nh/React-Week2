@@ -8,14 +8,14 @@ export default class MovieList extends React.Component {
 
     render() {
         return (
-            <div className="container p-5 ">
+            <div className="movie-list container p-5 ">
                 <h2>Movie List</h2>
                 <Movie {...
                 { id: 1,
                   key: 1,
                   ranking: 1,
                   stars: 5,
-                  totalratings: 0,
+                  totalvotes: 1,
                   title: 'Schindler\'s List',
                   rating: 'R (for language, some sexuality and actuality violence).',
                   synopsis: 'In German-occupied Poland during World War II industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.',
@@ -27,7 +27,7 @@ export default class MovieList extends React.Component {
                   key: 2,
                   ranking: 2,
                   stars: 5,
-                  totalratings: 0,
+                  totalvotes: 1,
                   title: 'Whiplash',
                   rating: 'R (for strong language including some sexual references).',
                   synopsis: 'A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student\'s potential.',
@@ -39,7 +39,7 @@ export default class MovieList extends React.Component {
                   key: 3,
                   ranking: 4,
                   stars: 5,
-                  totalratings: 0,
+                  totalvotes: 1,
                   title: 'The Shawshank Redemption',
                   rating: 'R (for language and prison violence).',
                   synopsis: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency',
@@ -51,7 +51,7 @@ export default class MovieList extends React.Component {
                   key: 4,
                   ranking: 4,
                   stars: 5,
-                  totalratings: 0,
+                  totalratings: 1,
                   title: 'Encanto',
                   rating: 'PG (for some thematic elements and mild peril).',
                   synopsis: 'A young Colombian woman has to face the frustration of being the only member of her family without magical powers.',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import ReviewList from './reviewlist';
+import ReviewForm from './reviewform';
 import Stars from './stars';
 
 
@@ -19,22 +20,37 @@ export default class Movie extends React.Component{
       newstars: props.newstars,
       totalvotes: props.totalvotes,
       synopsis: props.synopsis,
-      image: props.image
+      image: props.image,
+      reviews: props.reviews
     };
+    this.onStarSubmit = this.onStarSubmit.bind(this); // needed for React
     this.onFormSubmit = this.onFormSubmit.bind(this); // needed for React
   }
 
-  onFormSubmit(formState) {
-    console.log("In Movie.js -- onFormSubmit: " + formState.newstars);
-    const oldstars = this.state.stars;
+  onStarSubmit(formState) {
+    console.log("In Movie.js -- onStarSubmit: " + formState.newstars);
+    let oldstars = this.state.stars;
     const newstars = formState.newstars;
     const newtotalvotes = this.state.totalvotes+1;
-    this.setState(
-      {stars: ((oldstars+newstars)/newtotalvotes)},
-      {totalvotes: this.props.totalvotes++})
+    let computedstars = (oldstars + newstars);
+    console.log ("computed stars: " + computedstars);
+    computedstars = computedstars/newtotalvotes;
+    console.log ("computed stars: " + computedstars);
+    this.setState({
+      stars: computedstars,
+      totalvotes: newtotalvotes
+    });
   }   
 
-  
+  // addReviewToList -- let's update the reviews array with the new content.
+  onFormSubmit(formState) {
+    const newreviews = this.state.reviews.slice();
+    newreviews.push(formState);
+    this.setState ({
+      reviews: newreviews
+    })
+  }   
+
   render() {
       // console.log(this.props.image); // for debugging purposes
     return (
@@ -56,12 +72,15 @@ export default class Movie extends React.Component{
                 <strong>Reviews: </strong>
                 <br/><br />
                 <ReviewList />
-                <Stars /> <br />
             </div>
             </Card.Body>
             <br />
-            <Card.Footer className="text-muted"> 
-             
+            <Card.Footer className="text-muted p-2"> 
+                <div>
+                    <Stars  onStarSubmit={(formState) => this.onStarSubmit(formState)}/> 
+                    <br /> <br />
+                    <ReviewForm  onFormSubmit={(formState) => this.onFormSubmit(formState)}  />
+                </div>
               
                End of <strong>{this.state.title}</strong>
             </Card.Footer>

@@ -1,4 +1,6 @@
 import React from 'react';
+import {Button, Form} from 'react-bootstrap';
+
 
 // ReviewForm - a form at the bottom of a Movie component that allows users to 
 // leave reviews.  When submitted, the review should be added to the movie.  
@@ -17,12 +19,12 @@ export default class ReviewForm extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
-    resetReview() {
-      this.setState({
-        title: '',
-        reviewtext: ''
-      });
-    }
+    // resetReview() {
+    //   this.setState({
+    //     title: '',
+    //     reviewtext: ''
+    //   });
+    // }
 
     handleChange(event) {
       let current = event.target;
@@ -37,14 +39,14 @@ export default class ReviewForm extends React.Component {
     handleSubmit() {
       console.log('A movie review was submitted.');
       this.props.onFormSubmit(this.state);
-      this.resetReview();
+      //this.resetReview();
     }
   
     render() {
       return (
-          <div className="border border-primary p-3">
+          <div className="new-movie-review p-2">
             <h5>Personal Movie Review</h5>
-            <form className="form" onSubmit={this.handleSubmit}>
+            <Form className="form">
                 <label htmlFor="titleInput"><b>Title for Movie Review:</b></label>
                 <br />
                     <input name="title" type="text" id="titleInput" value={this.state.title} onChange={this.handleChange} />
@@ -53,8 +55,13 @@ export default class ReviewForm extends React.Component {
                     <br />
                     <input name="reviewtext" type="text" id="reviewInput" value={this.state.reviewtext} onChange={this.handleChange} />
                     <br /><br/>
-                    <input className="submit-button btn btn-dark" type="submit" value="Submit Review" onClick={this.handleSubmit} />
-            </form>
+                    <Button className="submit-button btn btn-dark" type="submit" value="Submit Review" onClick={this.handleSubmit}>Submit Movie Review</Button>
+                    <div>
+                      <input type='hidden' name='movieid' id='movieid' value={this.id}/>
+                      <input type='hidden' id='displayid' placeholder={this.id}/>
+                    </div> 
+                    
+            </Form>
           </div>
       );
     }

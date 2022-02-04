@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import MovieList from './components/movielist';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
 ReactDOM.render(
-    <MovieList />,
+    <App />,
   document.getElementById('root')
 );
 
