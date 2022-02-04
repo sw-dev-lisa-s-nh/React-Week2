@@ -12,19 +12,15 @@ export default class Review extends React.Component {
         };
     }
 
-
     render() {
         return (
             <Card>
-            <Card.Header>
-                <br /><strong>Movie Review</strong>                       
-            </Card.Header>
-           
-            <Card.Body>
-            <div className="cardBody">
-                <strong>Review: </strong> {this.state.reviewtext}
-            </div>
-            </Card.Body>
+                <div className="cardHeader">
+                    <strong>*</strong>
+                </div>    
+                <div className="cardBody">
+                    <strong>{this.state.title}: </strong> {this.state.reviewtext}
+                </div>
         </Card>
         );
     }

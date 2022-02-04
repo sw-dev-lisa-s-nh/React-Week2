@@ -9,22 +9,34 @@ export default class ReviewList extends React.Component {
         this.state = {
             reviews: []
         };
-        //this.onFormSubmit = this.onFormSubmit.bind(this); // needed for React
+        this.onFormSubmit = this.onFormSubmit.bind(this); // needed for React
     }
 
-    // onFormSubmit -- let's update the reviews array with the new content.
+    // addReviewToList -- let's update the reviews array with the new content.
+    onFormSubmit(formState) {
+        const reviews = this.state.reviews.slice();
+        reviews.push(formState);
+        this.setState ({
+          reviews
+        })
+      }   
 
     render() {
-        // var count = 1;
+        console.log("in reviewlist");
         // we need a loop to re-render the reviewlist on the page... ??????
         return (
-            <div>
-                <strong>Reviews: </strong>  
-                <div className="container">                         
-                    <h5>TO DO:  Make this work!</h5>
-                    {this.state.reviews}
+            <div className='container'>
+                <div>   
+                    {/* <Review {...                       */}
+                    {this.state.reviews.map(function(review,index) {
+                        return <div key={index}>{review.title}<span>: &nbsp; &nbsp;</span> {review.reviewtext}</div>
+                    })}
+                    {/* } /> */}
                 </div>
-                <ReviewForm />
+                <div>
+                    <ReviewForm onFormSubmit={(formState) => this.onFormSubmit(formState)}  />
+                    <br />
+                </div>
             </div>
         );
     }

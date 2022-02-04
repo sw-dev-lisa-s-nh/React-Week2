@@ -16,12 +16,23 @@ export default class Movie extends React.Component{
       title: props.title,
       rating: props.rating,
       stars: props.stars,
-      totalratings: props.totalratings,
+      newstars: props.newstars,
+      totalvotes: props.totalvotes,
       synopsis: props.synopsis,
-      image: props.image,
-      reviews: []
+      image: props.image
     };
+    this.onFormSubmit = this.onFormSubmit.bind(this); // needed for React
   }
+
+  onFormSubmit(formState) {
+    console.log("In Movie.js -- onFormSubmit: " + formState.newstars);
+    const oldstars = this.state.stars;
+    const newstars = formState.newstars;
+    const newtotalvotes = this.state.totalvotes+1;
+    this.setState(
+      {stars: ((oldstars+newstars)/newtotalvotes)},
+      {totalvotes: this.props.totalvotes++})
+  }   
 
   
   render() {
@@ -35,19 +46,23 @@ export default class Movie extends React.Component{
             </Card.Header>
            
             <Card.Body>
-            <div className="cardBody p-2 border border-color: rgb(46, 46, 88)">
+            <div className="cardBody p-2">
                 <strong>Synopsis:</strong>  {this.state.synopsis}
                 <br /><br />
                 <strong>Rating: {this.state.rating} </strong>
                 <br /><br />
                 <strong>Stars Average Rating: </strong> <span>&nbsp; &nbsp;</span><strong>{this.state.stars}</strong>
                 <br /><br />
-                <ReviewList /> <br />
+                <strong>Reviews: </strong>
+                <br/><br />
+                <ReviewList />
                 <Stars /> <br />
             </div>
             </Card.Body>
             <br />
             <Card.Footer className="text-muted"> 
+             
+              
                End of <strong>{this.state.title}</strong>
             </Card.Footer>
         </Card>

@@ -1,5 +1,4 @@
 import React from 'react';
-//import SubmitButton from './submitbutton';
 
 // ReviewForm - a form at the bottom of a Movie component that allows users to 
 // leave reviews.  When submitted, the review should be added to the movie.  
@@ -10,35 +9,51 @@ export default class ReviewForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        index: this.props.index,
-        reviewtext: this.props.reviewtext
+        title: '',
+        reviewtext: ''
       };
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
+    resetReview() {
+      this.setState({
+        title: '',
+        reviewtext: ''
+      });
+    }
+
     handleChange(event) {
-      this.setState({reviewtext: event.target.reviewtext});
+      let current = event.target;
+      const name = current.name;
+      const value = current.value;
+      console.log("Name: " + name + "  value: " + value);
+      this.setState({
+          [name]: value
+      });
     }
   
-    handleSubmit(event) {
-      alert('A movie review was submitted.');
-      event.preventDefault();
+    handleSubmit() {
+      console.log('A movie review was submitted.');
+      this.props.onFormSubmit(this.state);
+      this.resetReview();
     }
   
     render() {
       return (
           <div className="border border-primary p-3">
             <h5>Personal Movie Review</h5>
-            <h5>TO DO:  Fix SUBMIT!</h5>
-
-            <form className="p-2" onSubmit={this.handleSubmit}>
-                <label><strong>Review:</strong><br />
-                    <span>&nbsp;</span>
-                    <textarea className="m-1"value={this.props.reviewtext} onChange={this.handleChange} />
-                </label><br /><span>&nbsp; &nbsp;</span>
-            <input className="submit-button btn-dark" type="submit" value="Submit Movie Review" />
+            <form className="form" onSubmit={this.handleSubmit}>
+                <label htmlFor="titleInput"><b>Title for Movie Review:</b></label>
+                <br />
+                    <input name="title" type="text" id="titleInput" value={this.state.title} onChange={this.handleChange} />
+                    <br />
+                    <label htmlFor="reviewInput"><b>Review:</b></label>
+                    <br />
+                    <input name="reviewtext" type="text" id="reviewInput" value={this.state.reviewtext} onChange={this.handleChange} />
+                    <br /><br/>
+                    <input className="submit-button btn btn-dark" type="submit" value="Submit Review" onClick={this.handleSubmit} />
             </form>
           </div>
       );
