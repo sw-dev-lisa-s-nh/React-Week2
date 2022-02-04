@@ -39,7 +39,6 @@ export default class Stars extends React.Component {
   
     handleSubmit() {
       console.log('A star rating was submitted:' + this.state.newstars);
-      // PROBLEM:  This is undefined! -- onFormSubmit is defined in movie.js
       this.props.onStarSubmit(this.state);
       // this.resetStars();
     }
@@ -49,7 +48,6 @@ export default class Stars extends React.Component {
       return (
           <div className="star-box p-2">
             <h5>Stars Rating</h5>
-            <h5>TO DO:  Make Submit work!</h5>
             <form className="star-submission">
                 <label><strong>How many stars do you give this movie:</strong><br />
                 <div className="radio">
