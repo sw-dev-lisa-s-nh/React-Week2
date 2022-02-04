@@ -14,10 +14,10 @@ export default class ReviewList extends React.Component {
 
     // addReviewToList -- let's update the reviews array with the new content.
     onFormSubmit(formState) {
-        const reviews = this.state.reviews.slice();
-        reviews.push(formState);
+        const newreviews = this.state.reviews.slice();
+        newreviews.push(formState);
         this.setState ({
-          reviews
+          reviews: newreviews
         })
       }   
 
