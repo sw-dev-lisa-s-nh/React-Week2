@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button, Form} from 'react-bootstrap';
+import Review from './review';
 
 
 // ReviewForm - a form at the bottom of a Movie component that allows users to 
@@ -11,7 +12,6 @@ export default class ReviewForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        title: '',
         reviewtext: ''
       };
   
@@ -19,12 +19,11 @@ export default class ReviewForm extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
-    // resetReview() {
-    //   this.setState({
-    //     title: '',
-    //     reviewtext: ''
-    //   });
-    // }
+    resetReview() {
+      this.setState({
+        reviewtext: ''
+      });
+    }
 
     handleChange(event) {
       let current = event.target;
@@ -36,22 +35,25 @@ export default class ReviewForm extends React.Component {
       });
     }
   
-    handleSubmit() {
+    handleSubmit(event) {
+      event.preventDefault();
       console.log('A movie review was submitted.');
       this.props.onFormSubmit(this.state);
-      //this.resetReview();
+      this.resetReview();
     }
   
     render() {
       return (
           <div className="new-movie-review p-2">
+            <Review review={this.state.reviews} />
+
             <h5>Personal Movie Review</h5>
             <Form className="form">
-                <label htmlFor="titleInput"><b>Title for Movie Review:</b></label>
+                {/* <label htmlFor="titleInput"><b>Title for Movie Review:</b></label>
                 <br />
                     <input name="title" type="text" id="titleInput" value={this.state.title} onChange={this.handleChange} />
-                    <br />
-                    <label htmlFor="reviewInput"><b>Review:</b></label>
+                    <br /> */}
+                    <label htmlFor="reviewInput"><b>Enter review here:</b></label>
                     <br />
                     <input name="reviewtext" type="text" id="reviewInput" value={this.state.reviewtext} onChange={this.handleChange} />
                     <br /><br/>
@@ -59,8 +61,7 @@ export default class ReviewForm extends React.Component {
                     <div>
                       <input type='hidden' name='movieid' id='movieid' value={this.id}/>
                       <input type='hidden' id='displayid' placeholder={this.id}/>
-                    </div> 
-                    
+                    </div>                    
             </Form>
           </div>
       );

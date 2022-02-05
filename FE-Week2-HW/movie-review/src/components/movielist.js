@@ -1,12 +1,16 @@
 import React from 'react';
-import Movie from '../components/movie';
+import Movie from './movie';
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 
 // MovieList - a container for all the Movie components and their data.
 
 export default class MovieList extends React.Component {
-
     render() {
+      // let movies;
+      // if(this.state.movies) {
+      //     movies = this.state.movies.map((movie, index) => <Movie key={index} {...movie} />);
+      //     return {movies};
+      // } else {
         return (
             <div className="movie-list container p-5 ">
                 <h2>Movie List</h2>
@@ -59,5 +63,6 @@ export default class MovieList extends React.Component {
                 }/>   
             </div>
         );
+      }
     }
-}
+// }

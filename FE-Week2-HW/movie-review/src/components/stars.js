@@ -15,11 +15,11 @@ export default class Stars extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
-    // resetStars() {
-    //   this.setState({
-    //     newstars: 0
-    //   });
-    // }
+    resetStars() {
+      this.setState({
+        newstars: 0
+      });
+    }
 
     handleChange(event) {
       let current = event.target;
@@ -37,10 +37,11 @@ export default class Stars extends React.Component {
       });
     }
   
-    handleSubmit() {
+    handleSubmit(event) {
+      event.preventDefault();
       console.log('A star rating was submitted:' + this.state.newstars);
       this.props.onStarSubmit(this.state);
-      // this.resetStars();
+      this.resetStars();
     }
     
   

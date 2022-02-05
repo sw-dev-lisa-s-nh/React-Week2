@@ -14,15 +14,18 @@ export default class Review extends React.Component {
     }
 
     render() {
+        // let reviews = [];
+        // if (this.state.reviews.length !== 0) {
+        //     for (let review of this.state.reviews) {
+        //         reviews.push(<Review {...review} />);
+        //     }
+        //}
         return (
-            <Card>
-                <div className="cardHeader">
-                    <strong>*</strong>
-                </div>    
+            <Card> 
                 <div className="cardBody">
-                    <strong>{this.state.title}: </strong> {this.state.reviewtext}
+                    {this.state.reviews}
                 </div>
-        </Card>
+            </Card>
         );
     }
 }

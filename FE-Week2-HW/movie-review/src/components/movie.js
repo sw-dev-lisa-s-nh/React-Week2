@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import ReviewList from './reviewlist';
-import ReviewForm from './reviewform';
 import Stars from './stars';
 
 
@@ -20,18 +19,17 @@ export default class Movie extends React.Component{
       newstars: props.newstars,
       totalvotes: props.totalvotes,
       synopsis: props.synopsis,
-      image: props.image,
-      reviews: props.reviews
+      image: props.image
     };
     this.onStarSubmit = this.onStarSubmit.bind(this); // needed for React
-    this.onFormSubmit = this.onFormSubmit.bind(this); // needed for React
   }
 
   onStarSubmit(formState) {
     console.log("In Movie.js -- onStarSubmit: " + formState.newstars);
     let oldstars = this.state.stars;
     const newstars = formState.newstars;
-    const newtotalvotes = this.state.totalvotes+1;
+    let newtotalvotes = this.state.totalvotes;
+    newtotalvotes++;
     let computedstars = (oldstars + newstars);
     console.log ("computed stars: " + computedstars);
     computedstars = computedstars/newtotalvotes;
@@ -42,14 +40,7 @@ export default class Movie extends React.Component{
     });
   }   
 
-  // addReviewToList -- let's update the reviews array with the new content.
-  onFormSubmit(formState) {
-    const newreviews = this.state.reviews.slice();
-    newreviews.push(formState);
-    this.setState ({
-      reviews: newreviews
-    })
-  }   
+
 
   render() {
       // console.log(this.props.image); // for debugging purposes
@@ -79,7 +70,6 @@ export default class Movie extends React.Component{
                 <div>
                     <Stars  onStarSubmit={(formState) => this.onStarSubmit(formState)}/> 
                     <br /> <br />
-                    <ReviewForm  onFormSubmit={(formState) => this.onFormSubmit(formState)}  />
                 </div>
               
                End of <strong>{this.state.title}</strong>
