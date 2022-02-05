@@ -1,6 +1,5 @@
 import React from 'react';
 import {Button, Form} from 'react-bootstrap';
-import Review from './review';
 
 
 // ReviewForm - a form at the bottom of a Movie component that allows users to 
