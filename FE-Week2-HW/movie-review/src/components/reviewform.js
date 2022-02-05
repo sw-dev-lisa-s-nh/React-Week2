@@ -45,7 +45,7 @@ export default class ReviewForm extends React.Component {
     render() {
       return (
           <div className="new-movie-review p-2">
-            <Review review={this.state.reviews} />
+            {/* <Review review={this.state.reviews} /> */}
 
             <h5>Personal Movie Review</h5>
             <Form className="form">

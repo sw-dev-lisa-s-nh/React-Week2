@@ -61,8 +61,11 @@ export default class Movie extends React.Component{
                 <strong>Stars Average Rating: </strong> <span>&nbsp; &nbsp;</span><strong>{this.state.stars}</strong>
                 <br /><br />
                 <strong>Reviews: </strong>
-                <br/><br />
-                <ReviewList />
+                <br />
+                <div className="p-2">
+                  <ReviewList />
+                </div>
+                
             </div>
             </Card.Body>
             <br />

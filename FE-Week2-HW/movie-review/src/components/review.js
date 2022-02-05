@@ -14,17 +14,9 @@ export default class Review extends React.Component {
     }
 
     render() {
-        // let reviews = [];
-        // if (this.state.reviews.length !== 0) {
-        //     for (let review of this.state.reviews) {
-        //         reviews.push(<Review {...review} />);
-        //     }
-        //}
         return (
             <Card> 
-                <div className="cardBody">
-                    {this.state.reviews}
-                </div>
+                {this.state.reviews}
             </Card>
         );
     }

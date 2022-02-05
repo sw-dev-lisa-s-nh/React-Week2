@@ -27,11 +27,9 @@ export default class ReviewList extends React.Component {
         // we need a loop to re-render the reviewlist on the page... ??????
         return (
             <div className='container'>
-                <div>   
-                    {this.state.reviews.map(function(review,index) {
-                        return <div key={index}>{review.title}<span>: &nbsp; &nbsp;</span> {review.reviewtext}</div>
-                    })}
-                </div>
+                {this.state.reviews.map(function(review,index) {
+                    return <div className="review border p-2" key={index}> <strong>Review:</strong> {review.reviewtext}</div>
+                })}
                 <ReviewForm  onFormSubmit={(formState) => this.onFormSubmit(formState)}  />
             </div>
         );
