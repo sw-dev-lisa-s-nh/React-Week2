@@ -15,10 +15,11 @@ export default class Stars extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
-    resetStars() {
+    resetStars(event) {
       this.setState({
-        newstars: 0
+        newstars: 0,
       });
+      event.target.checked='false';
     }
 
     handleChange(event) {
@@ -41,7 +42,7 @@ export default class Stars extends React.Component {
       event.preventDefault();
       console.log('A star rating was submitted:' + this.state.newstars);
       this.props.onStarSubmit(this.state);
-      this.resetStars();
+      this.resetStars(event);
     }
     
   

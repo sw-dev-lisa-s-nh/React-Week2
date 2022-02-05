@@ -19,6 +19,7 @@ export default class MovieList extends React.Component {
                   key: 1,
                   ranking: 1,
                   stars: 5,
+                  totalstars: 5,
                   totalvotes: 1,
                   title: 'Schindler\'s List',
                   rating: 'R (for language, some sexuality and actuality violence).',
@@ -31,6 +32,7 @@ export default class MovieList extends React.Component {
                   key: 2,
                   ranking: 2,
                   stars: 5,
+                  totalstars: 5,
                   totalvotes: 1,
                   title: 'Whiplash',
                   rating: 'R (for strong language including some sexual references).',
@@ -41,8 +43,9 @@ export default class MovieList extends React.Component {
                 <Movie {...
                 { id: 3,
                   key: 3,
-                  ranking: 4,
+                  ranking: 3,
                   stars: 5,
+                  totalstars: 5,
                   totalvotes: 1,
                   title: 'The Shawshank Redemption',
                   rating: 'R (for language and prison violence).',
@@ -55,12 +58,14 @@ export default class MovieList extends React.Component {
                   key: 4,
                   ranking: 4,
                   stars: 5,
-                  totalratings: 1,
+                  totalstars: 5,
+                  totalvotes: 1,
                   title: 'Encanto',
                   rating: 'PG (for some thematic elements and mild peril).',
                   synopsis: 'A young Colombian woman has to face the frustration of being the only member of her family without magical powers.',
                   image: 'https://www.themoviedb.org/t/p/original/7M8bMABEbhGkC6z36WEsDttDk6F.jpg'}
                 }/>   
+                <br /><br /><br />
             </div>
         );
       }

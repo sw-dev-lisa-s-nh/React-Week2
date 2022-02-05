@@ -17,6 +17,7 @@ export default class Movie extends React.Component{
       rating: props.rating,
       stars: props.stars,
       newstars: props.newstars,
+      totalstars: props.totalstars,
       totalvotes: props.totalvotes,
       synopsis: props.synopsis,
       image: props.image
@@ -26,16 +27,19 @@ export default class Movie extends React.Component{
 
   onStarSubmit(formState) {
     console.log("In Movie.js -- onStarSubmit: " + formState.newstars);
-    let oldstars = this.state.stars;
+    //let oldstars = this.state.stars;
     const newstars = formState.newstars;
     let newtotalvotes = this.state.totalvotes;
     newtotalvotes++;
-    let computedstars = (oldstars + newstars);
-    console.log ("computed stars: " + computedstars);
-    computedstars = computedstars/newtotalvotes;
+    let newtotalstars = (this.state.totalstars + newstars);
+    let computedstars = newtotalstars;
+    console.log ("total stars + new stars: " + computedstars);
+    console.log("total votes: " + newtotalvotes);
+    computedstars = Math.round(computedstars/newtotalvotes);
     console.log ("computed stars: " + computedstars);
     this.setState({
       stars: computedstars,
+      totalstars: newtotalstars,
       totalvotes: newtotalvotes
     });
   }   
